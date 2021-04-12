@@ -18,13 +18,25 @@ class _ChartApp extends StatelessWidget {
 
 class _MyHomePage extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
-  _MyHomePage({Key key}) : super(key: key);
+  _MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<_MyHomePage> {
+  late TrackballBehavior _trackballBehavior;
+
+  @override
+  void initState() {
+    _trackballBehavior = TrackballBehavior(
+        enable: true,
+        markerSettings: TrackballMarkerSettings(
+          markerVisibility: TrackballVisibilityMode.auto,
+        ));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,11 +51,7 @@ class _MyHomePageState extends State<_MyHomePage> {
             child: SfCartesianChart(
                 backgroundColor: Colors.white,
                 primaryXAxis: CategoryAxis(),
-                trackballBehavior: TrackballBehavior(
-                    enable: true,
-                    markerSettings: TrackballMarkerSettings(
-                      markerVisibility: TrackballVisibilityMode.auto,
-                    )),
+                trackballBehavior: _trackballBehavior,
                 series: <ChartSeries<_SalesData, String>>[
                   LineSeries<_SalesData, String>(
                       dataSource: <_SalesData>[
