@@ -26,7 +26,6 @@ class _MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<_MyHomePage> {
   late TrackballBehavior _trackballBehavior;
-
   @override
   void initState() {
     _trackballBehavior = TrackballBehavior(
