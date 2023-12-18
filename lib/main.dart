@@ -51,7 +51,7 @@ class _MyHomePageState extends State<_MyHomePage> {
                 backgroundColor: Colors.white,
                 primaryXAxis: CategoryAxis(),
                 trackballBehavior: _trackballBehavior,
-                series: <ChartSeries<_SalesData, String>>[
+                series: <LineSeries<_SalesData, String>>[
                   LineSeries<_SalesData, String>(
                       dataSource: <_SalesData>[
                         _SalesData('Jan', 35),
